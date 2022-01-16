@@ -7,7 +7,8 @@ import {
   pluck,
   mergeMap,
   filter,
-  toArray
+  toArray,
+  share
 } from 'rxjs/operators';
 
 interface OpenWeatherResponse {
@@ -48,7 +49,8 @@ export class ForecastService {
           temp: value.main.temp
         };
       }),
-      toArray()
+      toArray(),
+      share()
     );
   }
 
